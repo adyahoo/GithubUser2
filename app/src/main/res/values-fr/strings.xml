@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">GithubUser</string>
+    <string name="search">à la recherche de</string>
+    <string name="setting">Paramètres</string>
+    <string name="username">"Nom d'utilisateur"</string>
+    <string name="id">identité</string>
+    <string name="company">compagnie</string>
+    <string name="search_status">"Veuillez rechercher l'utilisateur souhaité"</string>
+    <string name="search_hint">"insérer le nom d'utilisateur"</string>
+    <string name="no_user_found">aucun utilisateur trouvé</string>
+    <string name="name">Nom</string>
+    <string name="repo">Repo</string>
+    <string name="followers">suiveurs</string>
+    <string name="followings">ce qui suit</string>
+
+    <string name="tab_1">suiveurs</string>
+    <string name="tab_2">ce qui suit</string>
+
+    <string name="hello_blank_fragment">bonjour fragment vide</string>
+</resources>
