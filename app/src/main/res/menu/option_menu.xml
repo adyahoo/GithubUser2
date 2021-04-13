@@ -9,8 +9,13 @@
             app:showAsAction="always"/>
 
         <item android:id="@+id/menu_language"
-            android:title="@string/setting"
+            android:title="@string/menu_language"
             android:icon="@drawable/ic_baseline_language_24"
+            app:showAsAction="always"/>
+
+        <item android:id="@+id/menu_setting"
+            android:title="@string/setting"
+            android:icon="@drawable/ic_baseline_settings_24"
             app:showAsAction="always"/>
     </group>
 </menu>

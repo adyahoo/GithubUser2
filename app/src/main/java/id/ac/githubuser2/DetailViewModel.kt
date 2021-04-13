@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
+import id.ac.githubuser2.MainActivity.Companion.TOKEN
 import id.ac.githubuser2.model.User
 import org.json.JSONArray
 import java.lang.Exception
@@ -19,7 +20,7 @@ class DetailViewModel: ViewModel() {
     fun setFollows(username: String?, tag: String) {
         val listItem = ArrayList<User>()
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 09376b629bf808cf96f3412c33666345c243a798")
+        client.addHeader("Authorization", "token $TOKEN")
         client.addHeader("User-Agent", "request")
 
         URL = if (tag.equals(TAG_FOLLOWER)) {

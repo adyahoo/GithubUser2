@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
+import id.ac.githubuser2.MainActivity.Companion.TOKEN
 import id.ac.githubuser2.databinding.ActivityMainBinding
 import id.ac.githubuser2.model.User
 import org.json.JSONObject
@@ -17,7 +18,7 @@ class MainViewModel: ViewModel() {
     fun setUser(username: String, binding: ActivityMainBinding) {
         val listItem = ArrayList<User>()
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 09376b629bf808cf96f3412c33666345c243a798")
+        client.addHeader("Authorization", "token $TOKEN")
         client.addHeader("User-Agent", "request")
         val url = "https://api.github.com/search/users?q=$username"
         client.get(url, object : AsyncHttpResponseHandler() {

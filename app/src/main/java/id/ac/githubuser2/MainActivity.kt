@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var listUser: ArrayList<User> = ArrayList<User>()
     private lateinit var mViewModel: MainViewModel
+    companion object{
+        const val TOKEN = "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"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -127,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getDetailUser(username: String) {
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 09376b629bf808cf96f3412c33666345c243a798")
+        client.addHeader("Authorization", "token $TOKEN")
         client.addHeader("User-Agent", "request")
         val url = "https://api.github.com/users/$username"
         client.get(url, object : AsyncHttpResponseHandler() {
@@ -157,7 +160,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun moveDetail(user: User) {
         val move = Intent(this, DetailActivity::class.java)
-        move.putExtra(DetailActivity.EXTRA_OBJECT, user)
+        move.putExtra(DetailActivity.EXTRA_OBJECT   , user)
         startActivity(move)
     }
 
