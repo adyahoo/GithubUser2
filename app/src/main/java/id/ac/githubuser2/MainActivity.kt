@@ -19,6 +19,7 @@ import id.ac.githubuser2.adapter.OnItemClickCallback
 import id.ac.githubuser2.adapter.UserAdapter
 import id.ac.githubuser2.databinding.ActivityMainBinding
 import id.ac.githubuser2.model.User
+import id.ac.githubuser2.settingpref.SettingPreferenceActivity
 import org.json.JSONObject
 import java.lang.Exception
 
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private var listUser: ArrayList<User> = ArrayList<User>()
     private lateinit var mViewModel: MainViewModel
     companion object{
-        const val TOKEN = "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"
+        const val TOKEN = "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"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,6 +106,9 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_language -> {
                 val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
                 startActivity(mIntent)
+            }
+            R.id.menu_setting -> {
+                startActivity(Intent(this, SettingPreferenceActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

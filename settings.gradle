@@ -1,2 +1,3 @@
+include ':ppAremusnoC'
 include ':app'
 rootProject.name = "GithubUser2"
