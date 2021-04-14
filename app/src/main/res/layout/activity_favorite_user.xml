@@ -4,24 +4,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".FavoriteUserActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_main"
+        android:id="@+id/rv_favorite"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_user"/>
 
     <ProgressBar
-        android:id="@+id/main_progbar"
+        android:id="@+id/favorite_progbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/brown_toolbar"
-        android:visibility="gone"/>
+        android:indeterminateTint="@color/brown_toolbar"/>
 
     <TextView
         android:id="@+id/tv_status_fav"

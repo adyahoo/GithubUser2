@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var userAdapter: UserAdapter
     companion object{
-        const val TOKEN = "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"
+        const val TOKEN = "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"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 userList.clear()
                 userAdapter.setData(userList)
-                Toast.makeText(applicationContext, "No Data in SQLite", Toast.LENGTH_SHORT).show()
+                binding.tvStatusFav.visibility = View.VISIBLE
             }
         }
     }

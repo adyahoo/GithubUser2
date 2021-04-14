@@ -1,21 +1,23 @@
 package id.ac.githubuser2.settingpref
 
-import android.app.NotificationManager
+import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.Settings
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
 import id.ac.githubuser2.R
 import id.ac.githubuser2.settingpref.alarmmanager.AlarmReceiver
+import java.util.*
 
-class SettingPreferenceManager(val context: SettingPreferenceActivity) : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
+class SettingPreferenceManager : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
     private lateinit var reminder: String
+    private lateinit var language: String
     private lateinit var isSet: SwitchPreference
+    private lateinit var languageSetting: Preference
     private val alarmReceiver: AlarmReceiver = AlarmReceiver()
-    companion object{
-        private const val NOTIF_ID = 1
-        private const val TIME = "09:00"
-    }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.setting_preference)
@@ -25,13 +27,27 @@ class SettingPreferenceManager(val context: SettingPreferenceActivity) : Prefere
 
     private fun init() {
         reminder = resources.getString(R.string.key_reminder)
+        language = resources.getString(R.string.key_language)
         isSet = findPreference<SwitchPreference>(reminder) as SwitchPreference
+        languageSetting = findPreference<Preference>(language) as Preference
+
+        languageSetting.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            moveToLanguageSetting()
+            true
+        }
+    }
+
+    private fun moveToLanguageSetting() {
+        val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+        startActivity(mIntent)
     }
 
     private fun setSummaries() {
         val sh = preferenceManager.sharedPreferences
         isSet.isChecked = sh.getBoolean(reminder, false)
 
+        val languageSum = Locale.getDefault().displayLanguage
+        languageSetting.summary = languageSum
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {

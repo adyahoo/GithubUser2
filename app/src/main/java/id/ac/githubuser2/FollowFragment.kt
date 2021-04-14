@@ -1,5 +1,6 @@
 package id.ac.githubuser2
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.githubuser2.adapter.OnItemClickCallback
 import id.ac.githubuser2.adapter.UserAdapter
 import id.ac.githubuser2.model.User
 
@@ -61,11 +63,23 @@ class FollowFragment : Fragment() {
                 getFollows()
             }
         }
+
+        followAdapter.setOnItemClickCallback(object : OnItemClickCallback{
+            override fun onItemClicked(data: User) {
+                moveToDetail(data)
+            }
+        })
+    }
+
+    private fun moveToDetail(data: User) {
+        val intent = Intent(activity, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_OBJECT, data)
+        startActivity(intent)
     }
 
     private fun getFollows() {
         clearUser()
-        mViewModel.getFollows().observe(this, { followItems ->
+        mViewModel.getFollows().observe(viewLifecycleOwner, { followItems ->
             if (followItems.isNotEmpty()) {
                 followAdapter.setData(followItems)
                 showProgressBar(false)

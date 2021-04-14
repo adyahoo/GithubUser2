@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private var listUser: ArrayList<User> = ArrayList<User>()
     private lateinit var mViewModel: MainViewModel
     companion object{
-        const val TOKEN = "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"
+        const val TOKEN = "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"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,12 +103,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_language -> {
-                val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-                startActivity(mIntent)
-            }
             R.id.menu_setting -> {
                 startActivity(Intent(this, SettingPreferenceActivity::class.java))
+            }
+            R.id.menu_favorite -> {
+                startActivity(Intent(this, FavoriteUserActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

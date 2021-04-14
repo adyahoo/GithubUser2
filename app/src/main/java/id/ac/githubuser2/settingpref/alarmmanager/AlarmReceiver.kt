@@ -13,9 +13,6 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import id.ac.githubuser2.MainActivity
 import id.ac.githubuser2.R
-import id.ac.githubuser2.settingpref.SettingPreferenceManager
-import java.text.ParseException
-import java.text.SimpleDateFormat
 import java.util.*
 
 class AlarmReceiver: BroadcastReceiver() {
@@ -27,8 +24,8 @@ class AlarmReceiver: BroadcastReceiver() {
         private const val NOTIF_ID = 1
     }
 
-    fun setRepeatAlarm(context: Context) {
-        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    fun setRepeatAlarm(context: Context?) {
+        val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         val calender = Calendar.getInstance()
         calender.set(Calendar.HOUR_OF_DAY, 9)
@@ -42,8 +39,8 @@ class AlarmReceiver: BroadcastReceiver() {
         Toast.makeText(context, "Alarm Set Successfully", Toast.LENGTH_SHORT).show()
     }
 
-    fun cancelAlarm(context: Context) {
-        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    fun cancelAlarm(context: Context?) {
+        val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, 0)
         pendingIntent.cancel()

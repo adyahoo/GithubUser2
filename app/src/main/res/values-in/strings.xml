@@ -16,5 +16,17 @@
 
     <string name="tab_1">Pengikut</string>
     <string name="tab_2">Mengikuti</string>
+    <string name="action_settings">Pengaturan</string>
 
+    <string name="menu_home">Utama</string>
+    <string name="menu_favorite">Favorit</string>
+    <string name="title_home">Utama</string>
+    <string name="title_favorite">Favorit</string>
+    <string name="key_reminder">key_reminder</string>
+    <string name="title_reminder">Pengingat pada pukul 09.00 AM</string>
+    <string name="switch_off">Pengingat tidak dipasang</string>
+    <string name="switch_on">Pengingat dipasang</string>
+    <string name="key_language">key_language</string>
+    <string name="select_language">Pilih Bahasa</string>
+    <string name="favorite_user">Favorit Pengguna</string>
 </resources>

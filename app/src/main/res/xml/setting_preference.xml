@@ -10,4 +10,11 @@
         android:summaryOff="@string/switch_off"
         android:summaryOn="@string/switch_on"/>
 
+    <Preference
+        android:key="@string/key_language"
+        android:title="@string/select_language"
+        android:icon="@drawable/ic_baseline_language_24"
+        android:enabled="true"
+        android:selectable="true"/>
+
 </PreferenceScreen>
